@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "serviceArea": "Service Area",
+    "whyUs": "Why Us",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": {"en": "Move. Clear. Reuse.", "ja": "「運ぶ・片づける・再生する。」"},
+    "sub": "Expert moving, eco-friendly disposal, and used-appliance delivery across Kanto."
+  },
+  "stats": { "moves": "Moves completed", "tons": "Tons recycled" },
+  "estimator": {
+    "title": "Instant Quote Estimator",
+    "disclaimer": "Quick estimate. Exact price after photos/video.",
+    "estimate": "Estimate"
+  },
+  "services": {
+    "title": "Services",
+    "moving": "Moving",
+    "disposal": "Disposal & Junk Removal",
+    "appliances": "Used Home Appliances",
+    "estimateForThis": "Estimate for this"
+  },
+  "area": { "title": "Service Area", "sameDay": "Same-day available", "weekend": "Weekend moves" },
+  "why": { "title": "Why Second Chance", "licensed": "Licenses & compliance", "insured": "Insured handling", "bilingual": "Bilingual team (EN/JA)", "reuse": "Reuse-first policy" },
+  "reviews": { "title": "Reviews", "seeAll": "See all reviews" },
+  "booking": { "title": "Book your move" },
+  "form": {
+    "from": "From", "to": "To", "date": "Date", "time": "Time",
+    "residence": "Residence type", "residenceApartment": "Apartment", "residenceHouse": "House", "residenceOffice": "Office",
+    "floors": "Floors", "elevator": "Elevator", "items": "Items",
+    "itemsAppliances": "Appliances", "itemsFurniture": "Furniture", "itemsBoxes": "Boxes", "itemsSpecial": "Special handling",
+    "disposal": "Disposal needed", "preferred": "Preferred contact", "contactCall": "Call", "contactLine": "LINE", "contactWhatsapp": "WhatsApp", "contactEmail": "Email",
+    "name": "Name", "phone": "Phone", "email": "Email", "message": "Message", "media": "Upload photos/videos", "consent": "I agree to be contacted about my request."
+  },
+  "cta": { "getQuote": "Get Instant Quote", "bookNow": "Book Now", "next": "Next", "back": "Back", "submit": "Submit", "send": "Send", "call": "Call" }
+}
