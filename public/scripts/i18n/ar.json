@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "serviceArea": "نطاق الخدمة",
+    "whyUs": "لماذا نحن",
+    "gallery": "أعمالنا",
+    "reviews": "المراجعات",
+    "about": "نبذة عنا",
+    "contact": "تواصل"
+  },
+  "hero": {
+    "headline": {"en": "Move. Clear. Reuse.", "ja": "\u300c\u904b\u3076\u30fb\u7247\u3065\u3051\u308b\u30fb\u518d\u751f\u3059\u308b\u3002\u300d"},
+    "sub": "نقل احترافي والتخلص البيئي من النفايات وتوصيل الأجهزة المستعملة في كانتو."
+  },
+  "stats": { "moves": "عمليات نقل مكتملة", "tons": "أطنان مُعاد تدويرها" },
+  "estimator": { "title": "حاسبة السعر الفوري", "disclaimer": "سعر تقريبي. السعر النهائي بعد الصور/الفيديو.", "estimate": "تقدير" },
+  "services": { "title": "الخدمات", "moving": "نقل", "disposal": "إزالة النفايات", "appliances": "أجهزة مستعملة", "estimateForThis": "تقدير لهذه الخدمة" },
+  "area": { "title": "نطاق الخدمة", "sameDay": "خدمة نفس اليوم", "weekend": "نقل في العطلات" },
+  "why": { "title": "لماذا نحن", "licensed": "تراخيص والامتثال", "insured": "مؤمن", "bilingual": "فريق ثنائي اللغة", "reuse": "إعادة الاستخدام أولاً" },
+  "reviews": { "title": "المراجعات", "seeAll": "عرض الكل" },
+  "booking": { "title": "احجز الآن" },
+  "form": {
+    "from": "من", "to": "إلى", "date": "التاريخ", "time": "الوقت",
+    "residence": "نوع السكن", "residenceApartment": "شقة", "residenceHouse": "منزل", "residenceOffice": "مكتب",
+    "floors": "عدد الطوابق", "elevator": "مصعد", "items": "العناصر",
+    "itemsAppliances": "أجهزة", "itemsFurniture": "أثاث", "itemsBoxes": "صناديق", "itemsSpecial": "تعامل خاص",
+    "disposal": "تخلص مطلوب", "preferred": "طريقة التواصل", "contactCall": "اتصال", "contactLine": "LINE", "contactWhatsapp": "واتساب", "contactEmail": "البريد الإلكتروني",
+    "name": "الاسم", "phone": "الهاتف", "email": "البريد", "message": "رسالة", "media": "رفع صور/فيديو", "consent": "أوافق على التواصل بشأن طلبي."
+  },
+  "cta": { "getQuote": "احصل على سعر فوري", "bookNow": "احجز الآن", "next": "التالي", "back": "رجوع", "submit": "إرسال", "send": "إرسال", "call": "اتصال" }
+}

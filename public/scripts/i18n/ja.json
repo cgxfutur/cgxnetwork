@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "services": "サービス",
+    "serviceArea": "対応エリア",
+    "whyUs": "選ばれる理由",
+    "gallery": "事例",
+    "reviews": "レビュー",
+    "about": "会社案内",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "headline": {"en": "Move. Clear. Reuse.", "ja": "「運ぶ・片づける・再生する。」"},
+    "sub": "関東一円で引っ越し・不用品回収・中古家電の配送設置。英日対応。"
+  },
+  "stats": { "moves": "対応件数", "tons": "リサイクル実績（トン）" },
+  "estimator": {
+    "title": "かんたん見積もり",
+    "disclaimer": "概算です。正確な料金は写真／動画確認後にご案内します。",
+    "estimate": "概算"
+  },
+  "services": {
+    "title": "サービス",
+    "moving": "引っ越し（個人・法人）",
+    "disposal": "回収・処分（適正処理）",
+    "appliances": "中古家電（配送・設置）",
+    "estimateForThis": "この内容で見積もる"
+  },
+  "area": { "title": "対応エリア", "sameDay": "当日対応可", "weekend": "土日祝対応" },
+  "why": { "title": "選ばれる理由", "licensed": "各種許可・法令遵守", "insured": "丁寧・安心の補償付き", "bilingual": "英日バイリンガル対応", "reuse": "リユース優先の方針" },
+  "reviews": { "title": "レビュー", "seeAll": "すべてのレビューを見る" },
+  "booking": { "title": "予約する" },
+  "form": {
+    "from": "出発地", "to": "到着地", "date": "日付", "time": "時間",
+    "residence": "住居タイプ", "residenceApartment": "マンション・アパート", "residenceHouse": "一戸建て", "residenceOffice": "オフィス",
+    "floors": "階数", "elevator": "エレベーターあり", "items": "品目",
+    "itemsAppliances": "家電", "itemsFurniture": "家具", "itemsBoxes": "ダンボール", "itemsSpecial": "特殊作業",
+    "disposal": "処分あり", "preferred": "ご希望の連絡方法", "contactCall": "電話", "contactLine": "LINE", "contactWhatsapp": "WhatsApp", "contactEmail": "メール",
+    "name": "お名前", "phone": "電話番号", "email": "メール", "message": "メッセージ", "media": "写真／動画をアップロード", "consent": "本件に関する連絡に同意します。"
+  },
+  "cta": { "getQuote": "見積もり（即時）", "bookNow": "予約する", "next": "次へ", "back": "戻る", "submit": "送信", "send": "送信", "call": "電話" }
+}

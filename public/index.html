@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Second Chance — Move. Clear. Reuse.</title>
+    <meta name="description" content="Expert moving, eco-friendly disposal, and used-appliance delivery across Kanto. Bilingual EN/JA service. Fast, careful, compliant, reuse-first." />
+
+    <!-- Colors & theme -->
+    <meta name="theme-color" content="#0F172A" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Second Chance" />
+    <meta property="og:title" content="Second Chance — Move. Clear. Reuse." />
+    <meta property="og:description" content="Expert moving, eco-friendly disposal, and used-appliance delivery across Kanto." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://secondchancejapan.com" />
+    <meta property="og:image" content="/assets/images/og.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Second Chance — Move. Clear. Reuse." />
+    <meta name="twitter:description" content="Expert moving, eco-friendly disposal, and used-appliance delivery across Kanto." />
+    <meta name="twitter:image" content="/assets/images/og.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <!-- Leaflet (for map widgets) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="logo" href="/index.html" aria-label="Second Chance Home">
+          <span>Second Chance</span>
+          <span class="jp">セカンドチャンス合同会社</span>
+        </a>
+        <nav class="site-nav" role="navigation" aria-label="Primary" id="primary-nav">
+          <ul>
+            <li><a data-i18n="nav.home" href="/index.html">Home</a></li>
+            <li><a data-i18n="nav.services" href="/pages/services.html">Services</a></li>
+            <li><a data-i18n="nav.serviceArea" href="/pages/service-area.html">Service Area</a></li>
+            <li><a data-i18n="nav.whyUs" href="/pages/why-us.html">Why Us</a></li>
+            <li><a data-i18n="nav.gallery" href="/pages/gallery.html">Gallery</a></li>
+            <li><a data-i18n="nav.reviews" href="/pages/reviews.html">Reviews</a></li>
+            <li><a data-i18n="nav.about" href="/pages/about.html">About</a></li>
+            <li><a data-i18n="nav.contact" href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-ctas">
+          <button id="open-estimator" class="btn btn-primary" data-i18n="cta.getQuote">Get Instant Quote</button>
+          <div class="language-switcher" aria-label="Language switcher">
+            <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" data-lang="ja">日本語</button>
+            <button class="lang-btn" data-lang="ar" aria-label="Arabic">العربية</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <!-- HERO with Three.js canvas -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-canvas-wrap" aria-hidden="true">
+          <canvas id="hero3dCanvas"></canvas>
+        </div>
+        <div class="container hero-content">
+          <h1 id="hero-title" class="hero-title">
+            <span data-i18n="hero.headline.en">Move. Clear. Reuse.</span>
+            <span class="jp" data-i18n="hero.headline.ja">「運ぶ・片づける・再生する。」</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">Expert moving, eco-friendly disposal, and used-appliance delivery across Kanto.</p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary lottie-cta" id="hero-quote" data-i18n="cta.getQuote">Get Instant Quote</button>
+            <a class="btn btn-ghost" id="hero-call" href="tel:08020313680" data-i18n="cta.call">Call</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="num" data-counter="moves">0</div>
+              <div class="label" data-i18n="stats.moves">Moves completed</div>
+            </div>
+            <div class="stat">
+              <div class="num" data-counter="tons">0</div>
+              <div class="label" data-i18n="stats.tons">Tons recycled</div>
+            </div>
+          </div>
+        </div>
+        <div class="skyline parallax" aria-hidden="true"></div>
+      </section>
+
+      <!-- Estimator Wizard -->
+      <section class="estimator" aria-labelledby="estimator-title">
+        <div class="container">
+          <h2 id="estimator-title" data-i18n="estimator.title">Instant Quote Estimator</h2>
+          <p class="muted" data-i18n="estimator.disclaimer">Quick estimate. Exact price after photos/video.</p>
+
+          <div class="wizard" role="group" aria-label="Quote wizard">
+            <div class="wizard-progress" aria-hidden="true"><div class="bar" id="wizard-bar"></div></div>
+
+            <form id="quote-form">
+              <div class="wizard-step" data-step="1">
+                <div class="grid">
+                  <label>
+                    <span data-i18n="form.from">From</span>
+                    <input type="text" name="from" placeholder="Address or area" inputmode="text" autocomplete="address-line1" required />
+                  </label>
+                  <label>
+                    <span data-i18n="form.to">To</span>
+                    <input type="text" name="to" placeholder="Address or area" inputmode="text" autocomplete="address-line1" required />
+                  </label>
+                </div>
+                <div class="grid">
+                  <label>
+                    <span data-i18n="form.date">Date</span>
+                    <input type="date" name="date" required />
+                  </label>
+                  <label>
+                    <span data-i18n="form.time">Time</span>
+                    <input type="time" name="time" required />
+                  </label>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="2" hidden>
+                <div class="grid">
+                  <label>
+                    <span data-i18n="form.residence">Residence type</span>
+                    <select name="residence">
+                      <option value="apartment" data-i18n="form.residenceApartment">Apartment</option>
+                      <option value="house" data-i18n="form.residenceHouse">House</option>
+                      <option value="office" data-i18n="form.residenceOffice">Office</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span data-i18n="form.floors">Floors</span>
+                    <input type="number" name="floors" min="1" max="60" value="1" />
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" name="elevator" />
+                    <span data-i18n="form.elevator">Elevator</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="3" hidden>
+                <fieldset class="checkbox-group">
+                  <legend data-i18n="form.items">Items</legend>
+                  <label class="checkbox"><input type="checkbox" name="items" value="appliances" /><span data-i18n="form.itemsAppliances">Appliances</span></label>
+                  <label class="checkbox"><input type="checkbox" name="items" value="furniture" /><span data-i18n="form.itemsFurniture">Furniture</span></label>
+                  <label class="checkbox"><input type="checkbox" name="items" value="boxes" /><span data-i18n="form.itemsBoxes">Boxes</span></label>
+                  <label class="checkbox"><input type="checkbox" name="items" value="special" /><span data-i18n="form.itemsSpecial">Special handling</span></label>
+                </fieldset>
+                <label class="checkbox"><input type="checkbox" name="disposal" /><span data-i18n="form.disposal">Disposal needed</span></label>
+                <label>
+                  <span data-i18n="form.preferred">Preferred contact</span>
+                  <select name="preferred">
+                    <option value="call" data-i18n="form.contactCall">Call</option>
+                    <option value="line" data-i18n="form.contactLine">LINE</option>
+                    <option value="whatsapp" data-i18n="form.contactWhatsapp">WhatsApp</option>
+                    <option value="email" data-i18n="form.contactEmail">Email</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="wizard-footer">
+                <div class="estimate" aria-live="polite">
+                  <span data-i18n="estimator.estimate">Estimate</span>: <strong id="estimate-range">—</strong>
+                </div>
+                <div class="wizard-actions">
+                  <button type="button" class="btn" id="wizard-back" data-i18n="cta.back" disabled>Back</button>
+                  <button type="button" class="btn btn-primary" id="wizard-next" data-i18n="cta.next">Next</button>
+                  <button type="button" class="btn btn-accent" id="wizard-book" data-i18n="cta.bookNow" hidden>Book Now</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services preview -->
+      <section class="services-preview" aria-labelledby="services-title">
+        <div class="container">
+          <h2 id="services-title" data-i18n="services.title">Services</h2>
+          <div class="cards">
+            <a href="/pages/services.html#moving" class="card">
+              <div class="icon" aria-hidden="true">🚚</div>
+              <h3 data-i18n="services.moving">Moving</h3>
+              <button class="link" data-i18n="services.estimateForThis">Estimate for this</button>
+            </a>
+            <a href="/pages/services.html#disposal" class="card">
+              <div class="icon" aria-hidden="true">♻️</div>
+              <h3 data-i18n="services.disposal">Disposal & Junk Removal</h3>
+              <button class="link" data-i18n="services.estimateForThis">Estimate for this</button>
+            </a>
+            <a href="/pages/services.html#appliances" class="card">
+              <div class="icon" aria-hidden="true">🧺</div>
+              <h3 data-i18n="services.appliances">Used Home Appliances</h3>
+              <button class="link" data-i18n="services.estimateForThis">Estimate for this</button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map preview -->
+      <section class="map-preview" aria-labelledby="map-title">
+        <div class="container">
+          <h2 id="map-title" data-i18n="area.title">Service Area</h2>
+          <div id="mini-map" class="map" role="img" aria-label="Map highlighting Yokohama, Tokyo, Kanagawa, Kanto"></div>
+          <div class="badges">
+            <span class="badge" data-i18n="area.sameDay">Same-day available</span>
+            <span class="badge" data-i18n="area.weekend">Weekend moves</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Us -->
+      <section class="why-us" aria-labelledby="why-title">
+        <div class="container">
+          <h2 id="why-title" data-i18n="why.title">Why Second Chance</h2>
+          <ul class="trust-badges" role="list">
+            <li data-i18n="why.licensed">Licenses & compliance</li>
+            <li data-i18n="why.insured">Insured handling</li>
+            <li data-i18n="why.bilingual">Bilingual team (EN/JA)</li>
+            <li data-i18n="why.reuse">Reuse-first policy</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Reviews preview -->
+      <section class="reviews-preview" aria-labelledby="reviews-title">
+        <div class="container">
+          <h2 id="reviews-title" data-i18n="reviews.title">Reviews</h2>
+          <div class="testimonial-cards" aria-live="polite">
+            <article class="testimonial"><div class="stars" aria-hidden="true">★★★★★</div><p>“Fast and careful — booked same-day.”</p></article>
+            <article class="testimonial"><div class="stars" aria-hidden="true">★★★★★</div><p>“Clear pricing. Team spoke English and Japanese.”</p></article>
+            <article class="testimonial"><div class="stars" aria-hidden="true">★★★★★</div><p>“Disposed of appliances responsibly. Will use again.”</p></article>
+          </div>
+          <a class="link" href="/pages/reviews.html" data-i18n="reviews.seeAll">See all reviews</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="logo">Second Chance <span class="jp">セカンドチャンス合同会社</span></div>
+          <address>
+            second chance<br />
+            Yokohama kanazawa Namiki 2-1-8<br />
+            <a href="tel:08020313680">080-2031-3680</a> / <a href="tel:08047450109">080-4747-0109</a><br />
+            <a href="mailto:contact@secondchancejapan.com">contact@secondchancejapan.com</a>
+          </address>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="/pages/services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="/pages/service-area.html" data-i18n="nav.serviceArea">Service Area</a></li>
+            <li><a href="/pages/why-us.html" data-i18n="nav.whyUs">Why Us</a></li>
+            <li><a href="/pages/gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="/pages/reviews.html" data-i18n="nav.reviews">Reviews</a></li>
+            <li><a href="/pages/about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="/pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-meta">
+          <div class="socials" aria-label="Social">
+            <a href="https://www.facebook.com/profile.php?id=100063920745747" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="https://www.linkedin.com/company/second-chance-llc/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+          <small>© <span id="year"></span> Second Chance. <a href="#" aria-label="Privacy policy">Privacy</a></small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky Get Quote + Contact Dock -->
+    <div class="sticky-cta">
+      <button class="btn btn-primary" id="sticky-quote" data-i18n="cta.getQuote">Get Instant Quote</button>
+      <div class="contact-dock" role="navigation" aria-label="Quick contact">
+        <a class="dock-item" href="tel:08020313680" data-i18n="cta.call">Call</a>
+        <a class="dock-item" href="https://wa.me/818020313680" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="dock-item" href="https://line.me/R/ti/p/@secondchance" target="_blank" rel="noopener">LINE</a>
+      </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-content">
+        <button class="modal-close" data-close aria-label="Close">×</button>
+        <h3 id="booking-title" data-i18n="booking.title">Book your move</h3>
+        <form id="booking-form">
+          <div class="grid">
+            <label><span data-i18n="form.name">Name</span><input name="name" required autocomplete="name" /></label>
+            <label><span data-i18n="form.phone">Phone</span><input name="phone" required inputmode="tel" autocomplete="tel" /></label>
+            <label><span data-i18n="form.email">Email</span><input type="email" name="email" required autocomplete="email" /></label>
+          </div>
+          <label><span data-i18n="form.message">Message</span><textarea name="message" rows="3" placeholder="Items / notes"></textarea></label>
+          <label class="file">
+            <span data-i18n="form.media">Upload photos/videos</span>
+            <input type="file" name="media" accept="image/*,video/*" multiple />
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="consent" required />
+            <span data-i18n="form.consent">I agree to be contacted about my request.</span>
+          </label>
+          <div class="right">
+            <button type="submit" class="btn btn-primary" data-i18n="cta.submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- AI Concierge (chat + voice) -->
+    <button class="assistant-fab" id="assistant-fab" aria-label="Open assistant">✳</button>
+    <div class="assistant" id="assistant" hidden>
+      <div class="assistant-header">
+        <strong>Second Chance</strong>
+        <div class="spacer"></div>
+        <button id="assistant-voice" class="btn btn-ghost small" aria-pressed="false" aria-label="Toggle voice">🎤</button>
+        <button id="assistant-close" class="btn btn-ghost small" aria-label="Close">×</button>
+      </div>
+      <div class="assistant-log" id="assistant-log" role="log" aria-live="polite"></div>
+      <form id="assistant-form" class="assistant-input" autocomplete="off">
+        <input id="assistant-text" name="q" placeholder="Ask about pricing, availability…" aria-label="Assistant message" />
+        <button class="btn btn-primary" data-i18n="cta.send" type="submit">Send</button>
+      </form>
+    </div>
+
+    <!-- JSON-LD: LocalBusiness + Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Second Chance",
+      "alternateName": "セカンドチャンス合同会社",
+      "url": "https://secondchancejapan.com",
+      "email": "contact@secondchancejapan.com",
+      "telephone": ["+818020313680", "+818047470109"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Yokohama kanazawa Namiki 2-1-8",
+        "addressLocality": "Yokohama",
+        "addressRegion": "Kanagawa",
+        "addressCountry": "JP"
+      },
+      "areaServed": ["Yokohama", "Tokyo", "Kanagawa", "Kanto"],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100063920745747",
+        "https://www.linkedin.com/company/second-chance-llc/"
+      ],
+      "makesOffer": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Moving"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Disposal & Junk Removal"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Used Home Appliances (delivery & install)"}}
+        ]
+      }
+    }
+    </script>
+
+    <!-- Vendor scripts (defer) -->
+    <script defer src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Analytics (GA4 placeholder) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      // TODO: replace with real Measurement ID
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script defer src="/scripts/app.js"></script>
+  </body>
+</html>
