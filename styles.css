@@ -1,0 +1,208 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  --accent: #3eaf7c;
+  --accent-dark: #2f8a60;
+  --bg: #f3f5f7;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f0fff4 0%, #e0f7fa 100%);
+  color: #123;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(62, 175, 124, 0.2), transparent 40%),
+              radial-gradient(circle at 80% 0%, rgba(47, 138, 96, 0.1), transparent 35%);
+  z-index: -1;
+}
+
+header,
+main,
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header {
+  text-align: center;
+  padding-top: 3rem;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+section {
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.scanner h2,
+.manual-search h2,
+.results h2 {
+  margin-top: 0;
+}
+
+.camera-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover:not(:disabled),
+button:focus-visible:not(:disabled) {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.camera-view {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+#cameraStream,
+#snapshot {
+  width: 100%;
+  border-radius: 12px;
+  background: #000;
+  min-height: 240px;
+  object-fit: cover;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: #345;
+  margin-top: 0.5rem;
+}
+
+#prediction {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+#prediction strong {
+  font-size: 1.25rem;
+  color: var(--accent-dark);
+}
+
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(62, 175, 124, 0.4);
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+#veggieList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+#veggieList li {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#veggieList li span {
+  font-weight: 600;
+}
+
+#veggieList li:hover,
+#veggieList li:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(62, 175, 124, 0.2);
+}
+
+footer {
+  text-align: center;
+  color: #234;
+  font-size: 0.9rem;
+  padding-bottom: 3rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.recommendations {
+  list-style: disc inside;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  color: #234;
+}
+
+.recommendations li {
+  margin-bottom: 0.25rem;
+}

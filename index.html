@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Veggie Calorie Guide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Smart Veggie Calorie Guide</h1>
+    <p>Use your camera or search manually to discover calorie information and pick the healthiest produce while you shop.</p>
+  </header>
+
+  <main>
+    <section class="scanner">
+      <h2>Scan a Vegetable</h2>
+      <div class="camera-controls">
+        <button id="startCamera">Start Camera</button>
+        <button id="capturePhoto" disabled>Capture Photo</button>
+        <button id="analyzePhoto" disabled>Analyze Photo</button>
+      </div>
+      <div class="camera-view">
+        <video id="cameraStream" playsinline muted></video>
+        <canvas id="snapshot" width="224" height="224" aria-label="Captured snapshot"></canvas>
+      </div>
+      <p class="hint">Tip: Hold the vegetable steady in good lighting for the best result.</p>
+    </section>
+
+    <section class="results" aria-live="polite">
+      <h2>Result</h2>
+      <div id="prediction">No scan yet.</div>
+    </section>
+
+    <section class="manual-search">
+      <h2>Manual Search</h2>
+      <div class="search-bar">
+        <label for="searchInput" class="sr-only">Search for a vegetable</label>
+        <input id="searchInput" type="text" placeholder="Type a vegetable name (e.g., spinach)" />
+      </div>
+      <ul id="veggieList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by TensorFlow.js MobileNet model and curated nutrition data per 100g.</p>
+  </footer>
+</body>
+</html>
